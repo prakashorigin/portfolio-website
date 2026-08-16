@@ -22,3 +22,4 @@ Resume updates are saved to a private Vercel Blob, not the deployment filesystem
 ## Configure contact email
 
 Copy `.env.example` to `.env.local` and set `EMAIL_USER` and `EMAIL_PASS` to enable email delivery. Without those values, form submissions succeed in development and are logged by the server instead.
+# portfolio-website
