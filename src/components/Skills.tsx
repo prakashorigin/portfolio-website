@@ -30,7 +30,9 @@ export default function Skills() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             My <span className="gradient-text">Skills</span>
           </h2>
+
           <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-cyan-500 mx-auto rounded-full mb-6" />
+
           <p className="text-gray-400 max-w-2xl mx-auto">
             Technologies and tools I use to bring ideas to life
           </p>
@@ -49,7 +51,7 @@ export default function Skills() {
               onClick={() => setActiveCategory(cat)}
               className={`px-5 py-2 rounded-xl text-sm font-medium transition-all duration-300 ${
                 activeCategory === cat
-                  ? "bg-gradient-to-r from-purple-600 to-cyan-500 text-white shadow-lg shadow-purple-500/25"
+                  ? "keep-white bg-gradient-to-r from-purple-600 to-cyan-500 text-white shadow-lg shadow-purple-500/25"
                   : "glass text-gray-400 hover:text-white hover:bg-white/10"
               }`}
             >
@@ -65,33 +67,20 @@ export default function Skills() {
               key={skill.name}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.3 + i * 0.05, duration: 0.5 }}
+              transition={{
+                delay: 0.3 + i * 0.05,
+                duration: 0.5,
+              }}
               whileHover={{ scale: 1.02 }}
               className="glass rounded-xl p-5 hover:border-purple-500/40 transition-all duration-300 group"
             >
-              <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center justify-between">
                 <span className="font-medium text-white group-hover:text-purple-300 transition-colors">
                   {skill.name}
                 </span>
-                <span className="text-sm text-purple-400 font-mono">
-                  {skill.level}%
-                </span>
+
+                <span className="text-xs text-gray-500">{skill.category}</span>
               </div>
-              <div className="w-full h-2 bg-gray-700/50 rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={isInView ? { width: `${skill.level}%` } : {}}
-                  transition={{
-                    delay: 0.5 + i * 0.05,
-                    duration: 1,
-                    ease: "easeOut",
-                  }}
-                  className="h-full rounded-full bg-gradient-to-r from-purple-600 to-cyan-500"
-                />
-              </div>
-              <span className="text-xs text-gray-500 mt-2 block">
-                {skill.category}
-              </span>
             </motion.div>
           ))}
         </div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FaGithub, FaLinkedin, FaHeart, FaArrowUp } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaArrowUp } from "react-icons/fa";
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -18,19 +18,6 @@ export default function Footer() {
             <p className="text-sm text-gray-500">
               Full Stack Developer building modern web experiences.
             </p>
-          </div>
-
-          {/* Quick links */}
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-400">
-            {["Home", "About", "Projects", "Blog", "Contact"].map((link) => (
-              <a
-                key={link}
-                href={`#${link.toLowerCase()}`}
-                className="hover:text-purple-400 transition-colors"
-              >
-                {link}
-              </a>
-            ))}
           </div>
 
           {/* Social & scroll up */}

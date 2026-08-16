@@ -31,10 +31,6 @@ export default function Projects() {
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             My <span className="gradient-text">Projects</span>
           </h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-purple-600 to-cyan-500 mx-auto rounded-full mb-6" />
-          <p className="text-gray-400 max-w-2xl mx-auto">
-            A collection of projects I&apos;ve built to solve real problems
-          </p>
         </motion.div>
 
         {/* Category filter */}
@@ -50,7 +46,7 @@ export default function Projects() {
               onClick={() => setActiveCategory(cat)}
               className={`px-5 py-2 rounded-xl text-sm font-medium capitalize transition-all duration-300 ${
                 activeCategory === cat
-                  ? "bg-gradient-to-r from-purple-600 to-cyan-500 text-white shadow-lg shadow-purple-500/25"
+                  ? "keep-white bg-gradient-to-r from-purple-600 to-cyan-500 text-white shadow-lg shadow-purple-500/25"
                   : "glass text-gray-400 hover:text-white hover:bg-white/10"
               }`}
             >
@@ -74,7 +70,7 @@ export default function Projects() {
               <div className="relative h-48 overflow-hidden bg-gradient-to-br from-purple-900/40 to-cyan-900/40 flex items-center justify-center">
                 {/* Featured badge */}
                 {project.featured && (
-                  <div className="absolute top-3 right-3 z-10 px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-xs font-bold text-white">
+                  <div className="keep-white absolute top-3 right-3 z-10 px-3 py-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full text-xs font-bold text-white">
                     🌟 Featured
                   </div>
                 )}
@@ -82,7 +78,7 @@ export default function Projects() {
                 {/* Difficulty badge */}
                 {project.difficulty && (
                   <div
-                    className={`absolute top-3 left-3 z-10 px-3 py-1 rounded-full text-xs font-semibold text-white ${
+                    className={`keep-white absolute top-3 left-3 z-10 px-3 py-1 rounded-full text-xs font-semibold text-white ${
                       project.difficulty === "Beginner"
                         ? "bg-green-500/20 text-green-300 border border-green-500/50"
                         : project.difficulty === "Intermediate"
@@ -106,7 +102,7 @@ export default function Projects() {
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent" />
 
                 {/* Overlay links */}
-                <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/50">
+                <div className="keep-white absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 bg-black/50">
                   <motion.a
                     href={project.github}
                     target="_blank"

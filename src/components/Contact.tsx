@@ -239,7 +239,7 @@ export default function Contact() {
                 disabled={status === "sending"}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className={`w-full py-3.5 rounded-xl font-medium text-white flex items-center justify-center gap-2 transition-all duration-300 ${
+                className={`keep-white w-full py-3.5 rounded-xl font-medium text-white flex items-center justify-center gap-2 transition-all duration-300 ${
                   status === "sent"
                     ? "bg-green-500"
                     : status === "error"

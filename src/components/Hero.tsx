@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { HiArrowDown } from "react-icons/hi";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
@@ -119,7 +120,7 @@ export default function Hero() {
             >
               <a
                 href="#projects"
-                className="px-8 py-3.5 bg-gradient-to-r from-purple-600 to-cyan-500 rounded-xl text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:-translate-y-0.5"
+                className="keep-white px-8 py-3.5 bg-gradient-to-r from-purple-600 to-cyan-500 rounded-xl text-white font-medium hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 hover:-translate-y-0.5"
               >
                 View My Work
               </a>
@@ -176,10 +177,12 @@ export default function Hero() {
             <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-600 to-cyan-500 rounded-full blur-2xl opacity-30 animate-pulse" />
               <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-purple-500/30 shadow-2xl shadow-purple-500/20">
-                <img
+                <Image
                   src="/images/prakash.jpeg"
                   alt="Prakash Sharma"
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 768px) 256px, (max-width: 1024px) 320px, 384px"
+                  className="object-cover"
                 />
               </div>
             </div>

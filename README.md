@@ -1,63 +1,24 @@
-# Prakash-portfolio
+# Prakash Portfolio
 
-A modern responsive developer portfolio website built with React and TypeScript, featuring projects, skills, resume, and contact form.
+A responsive Next.js portfolio with animated sections, a dark/light theme, project filtering, an editable resume builder, and a contact form.
 
-## ✨ Featured Projects
-
-### 🎯 Todo App
-Full-stack React & Node.js app with MongoDB, JWT auth, dark mode, advanced filtering, TypeScript & Tailwind CSS. Production-ready.
-- **Tech Stack**: React, Node.js, MongoDB, TypeScript, Tailwind CSS
-- **Features**: Authentication, Dark Mode, Advanced Filtering
-
-### 🐍 CrazySnake Game
-Advanced Snake Game with 4 difficulty levels (Easy–Extreme), 6 unlockable skins, power-ups, particle effects, responsive canvas, and mobile swipe controls. Includes Express backend with persistent leaderboards.
-- **Tech Stack**: React, Node.js, JavaScript
-- **Features**: Multiplayer Leaderboards, Power-ups, Mobile Support
-
-### 📚 Student Management System
-Full-Stack Web Application for efficient student data management.
-- **Tech Stack**: React, Express.js, MongoDB
-- **Features**: Complete CRUD Operations, User Dashboard
-
-## 📌 Features
-
-- Modern responsive design
-- Projects showcase
-- Skills section
-- Resume/CV download
-- Contact form
-- Dark mode theme
-- Particle background animations
-
-## 🛠 Tech Stack
-
-- **Frontend**: React, TypeScript, Tailwind CSS
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB
-- **Authentication**: JWT
-- **Deployment**: Vercel
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js (v16+)
-- npm or yarn
-
-### Installation
+## Run locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-Visit `http://localhost:3000` to view the portfolio.
+Open [http://localhost:3000](http://localhost:3000). To create a production build, run `npm run build` and then `npm start`.
 
-### Build for Production
+## Resume: public viewers and owner-only editing
 
-```bash
-npm run build
-```
+Visitors use `/resume` to view, share, or download the current resume. They never see the editor.
 
-## 📝 License
+Only the owner can edit at `/resume/login`. Set `RESUME_ADMIN_PASSWORD` and a long random `RESUME_ADMIN_SECRET` in Vercel’s Environment Variables. A signed, HTTP-only session cookie protects `/resume/edit` and the write API.
 
-MIT
+Resume updates are saved to a private Vercel Blob, not the deployment filesystem, so the same saved resume is shown after a redeploy. In the Vercel project dashboard, create a **Blob** store and connect it to the project; Vercel adds `BLOB_READ_WRITE_TOKEN` automatically. Set the three resume variables for Production, Preview, and Development, then redeploy. Vercel’s [Blob SDK guide](https://vercel.com/docs/vercel-blob/using-blob-sdk) describes the store setup and automatic environment variable.
+
+## Configure contact email
+
+Copy `.env.example` to `.env.local` and set `EMAIL_USER` and `EMAIL_PASS` to enable email delivery. Without those values, form submissions succeed in development and are logged by the server instead.
