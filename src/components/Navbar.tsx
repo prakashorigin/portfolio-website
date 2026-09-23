@@ -34,7 +34,7 @@ export default function Navbar() {
         scrolled ? "glass shadow-lg shadow-purple-500/5" : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-5 lg:px-7">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="#home" className="flex items-center">
@@ -87,7 +87,7 @@ export default function Navbar() {
               className="keep-white flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-cyan-500 rounded-lg text-sm font-medium text-white hover:shadow-lg hover:shadow-purple-500/25 transition-all"
             >
               <HiDownload className="w-4 h-4" />
-              Resume Builder
+              Resume
             </motion.a>
           </div>
 
@@ -147,7 +147,7 @@ export default function Navbar() {
                   className="keep-white flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-600 to-cyan-500 rounded-lg text-sm font-medium text-white"
                 >
                   <HiDownload className="w-4 h-4" />
-                  Resume Builder
+                  Resume
                 </a>
               </div>
             </div>

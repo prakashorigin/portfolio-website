@@ -3,57 +3,84 @@
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaArrowUp } from "react-icons/fa";
 
+type SocialLink = {
+  name: string;
+  href: string;
+  icon: typeof FaGithub;
+};
+
+const socialLinks: SocialLink[] = [
+  {
+    name: "GitHub",
+    href: "https://github.com/prakashorigin",
+    icon: FaGithub,
+  },
+  {
+    name: "LinkedIn",
+    href: "https://www.linkedin.com/in/prakash-sharma-8ba4233a3/",
+    icon: FaLinkedin,
+  },
+];
+
 export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
-    <footer className="relative section-container border-t border-white/5">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-3 gap-8 items-center">
-          {/* Logo & tagline */}
+    <footer className="relative border-t border-white/5">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        {/* Main Footer */}
+        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+          {/* Logo & Tagline */}
           <div>
-            <h3 className="text-2xl font-bold gradient-text mb-2">Prakash</h3>
-            <p className="text-sm text-gray-500">
-              Full Stack Developer building modern web experiences.
+            <p className="max-w-md text-sm leading-6 text-gray-500">
+              Mern Stack Developer building modern, responsive, and
+              user-friendly web experiences.
             </p>
           </div>
 
-          {/* Social & scroll up */}
-          <div className="flex items-center justify-end gap-4">
-            {[
-              { icon: FaGithub, href: "https://github.com/prakashorigin" },
-              {
-                icon: FaLinkedin,
-                href: "https://www.linkedin.com/in/prakash-sharma-8ba4233a3/",
-              },
-            ].map((social, i) => (
-              <a
-                key={i}
-                href={social.href}
+          {/* Social Links & Scroll Top */}
+          <div className="flex items-center gap-3">
+            {socialLinks.map(({ name, href, icon: Icon }) => (
+              <motion.a
+                key={name}
+                href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 text-gray-500 hover:text-purple-400 transition-colors"
+                aria-label={`Visit Prakash's ${name} profile`}
+                title={name}
+                whileHover={{
+                  scale: 1.1,
+                  y: -2,
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/5 bg-white/[0.02] text-gray-500 transition-all duration-300 hover:border-purple-500/20 hover:bg-purple-500/10 hover:text-purple-400"
               >
-                <social.icon className="w-5 h-5" />
-              </a>
+                <Icon className="h-5 w-5" />
+              </motion.a>
             ))}
 
+            {/* Scroll To Top */}
             <motion.button
+              type="button"
               onClick={scrollToTop}
-              whileHover={{ scale: 1.1, y: -2 }}
-              whileTap={{ scale: 0.9 }}
-              className="ml-4 p-2.5 glass rounded-xl hover:bg-purple-500/10 transition-colors"
+              whileHover={{
+                scale: 1.1,
+                y: -2,
+              }}
+              whileTap={{ scale: 0.95 }}
               aria-label="Scroll to top"
+              title="Back to top"
+              className="ml-2 flex h-10 w-10 items-center justify-center rounded-xl border border-white/5 bg-white/[0.02] transition-all duration-300 hover:border-purple-500/20 hover:bg-purple-500/10"
             >
-              <FaArrowUp className="w-4 h-4 text-purple-400" />
+              <FaArrowUp className="h-4 w-4 text-purple-400" />
             </motion.button>
           </div>
         </div>
-
-        {/* Bottom bar */}
-        <div className="mt-8 pt-8 border-t border-white/5 text-center text-sm text-gray-500"></div>
       </div>
     </footer>
   );
